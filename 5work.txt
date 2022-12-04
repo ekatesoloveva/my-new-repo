@@ -1,0 +1,109 @@
+fun main() {
+    print("Номер числа из ряда Фибоначи: ")
+    var n = readLine()?.toIntOrNull()?: return
+    fibonacci(n)
+}
+
+ fun fibonacci(n: Int) {
+     var Fn1: Int= 0
+     var Fn2: Int = 1
+     var Fn:Int = 0
+
+     var i: Int = 0
+   while (i<n-2){
+     Fn= Fn1+Fn2
+     Fn2=Fn
+       println (i)
+     i++
+     return print ("Значение этого числа: $Fn")
+
+ }}
+
+
+
+//fun main() {
+    print("Номер элемента ряда Фибоначчи: ")
+    val n = readLine()?.toIntOrNull() ?: return
+    if (n>0) {
+        print("Значение этого элемента: ")
+        print(fibWhile(n))
+    } else {
+        println("Input error")
+    }
+}
+    fun fibWhile(n: Int): Int {
+        var num0 = 0
+        var num1 = 1
+        var fibonacci = 0
+        if (n <= 1) return 0
+        if (n == 2) return 1
+        var i = 2
+        while (i++ < n) {
+            fibonacci = num0 + num1
+            num0 = num1
+            num1 = fibonacci
+            if (i == n) {
+                return fibonacci
+            }
+        }
+        return fibonacci
+    }//
+
+
+
+
+
+
+
+
+fun main() {
+    print("Номер элемента из ряда Фибоначчи: ")
+    val n = readLine()?.toIntOrNull() ?: return
+    if (n>0) {
+        println("Значение элемента цикл While:" + fibWhile(n))
+        println("Значение элемента цикл For: "+ fibFor(n))
+        println("Значение элемента рекурсия: "+ fibRec(n))
+    } else {
+        println("Ошибка ввода")
+    }
+}
+    fun fibWhile(n: Int): Int {
+        var num0 = 0
+        var num1 = 1
+        var fibonacci = 0
+        if (n <= 1) return 0
+        if (n == 2) return 1
+        var i = 2
+        while (i++ < n) {
+            fibonacci = num0 + num1
+            num0 = num1
+            num1 = fibonacci
+            if (i == n) {
+                return fibonacci
+            }
+        }
+        return fibonacci
+    }
+
+ fun fibFor(n:Int):Int{
+     var num0=0
+     var num1=1
+     var fibonacci = 0
+
+     for (i in 1..n)  {
+       fibonacci=num0
+       num0+=num1
+       num1=fibonacci
+     }
+     return num1
+ }
+
+fun fibRec(n:Int):Int{
+    if (n<=1){
+        return 0
+    }else if (n==2){
+        return 1
+    }else{
+        return fibRec(n-1)+fibRec(n-2)
+    }
+}
